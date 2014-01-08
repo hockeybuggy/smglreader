@@ -1,15 +1,27 @@
 package toke;
 
-public class Tag{
+public class Tag {
     private String name;
-    private String value;
-    //TODO all tags can have Tag children
+    private Boolean opening; // True if name does not start with /
+    private int start;
+    private int end;
 
-    public Tag(String name, String value){
+    public Tag(String name, int start, int end){
         this.name = name;
-        this.value = value;
+        this.opening = (name.charAt(0) != '/');
+        this.start = start;
+        this.end = end;
     }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public Boolean isOpen(){
+        return this.opening;
+    }
+
     public String toString(){
-        return this.name + ": " +this.value;
+        return String.format("%s found at: %d to %d", this.name, this.start, this.end);
     }
 }
