@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-public class Tokenizer{
+public class SgmlReader {
     public static void main(String[] args) {
         String contents;
         if (args.length != 1){
